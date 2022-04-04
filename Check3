@@ -54,34 +54,43 @@
         "      #print(b)"
       ],
       "metadata": {
-        "id": "uUVqL1MtHswB",
-        "outputId": "be06cc97-9bc0-41b7-c92e-e418bf87bfdb",
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 495
-        }
+          "height": 651
+        },
+        "id": "uUVqL1MtHswB",
+        "outputId": "ab6bc8e5-4a91-446c-9ee5-1bd8345271c0"
       },
-      "execution_count": 54,
+      "execution_count": 55,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
             "Collecting git+https://github.com/fortesp/bitcoinaddress\n",
-            "  Cloning https://github.com/fortesp/bitcoinaddress to /tmp/pip-req-build-45n2627s\n",
-            "  Running command git clone -q https://github.com/fortesp/bitcoinaddress /tmp/pip-req-build-45n2627s\n",
+            "  Cloning https://github.com/fortesp/bitcoinaddress to /tmp/pip-req-build-_ikl0c3w\n",
+            "  Running command git clone -q https://github.com/fortesp/bitcoinaddress /tmp/pip-req-build-_ikl0c3w\n",
             "Requirement already satisfied: base58 in /usr/local/lib/python3.7/dist-packages (from bitcoinaddress==0.1.5) (2.1.1)\n",
             "Requirement already satisfied: ecdsa in /usr/local/lib/python3.7/dist-packages (from bitcoinaddress==0.1.5) (0.17.0)\n",
             "Requirement already satisfied: six>=1.9.0 in /usr/local/lib/python3.7/dist-packages (from ecdsa->bitcoinaddress==0.1.5) (1.15.0)\n",
-            "14qVyGdk5CtyK2vpZE6jWZ3eA95B9abQgL\n",
+            "1EmqY9fWjELWWvKKundZCK4wMHNDzKSJ8o\n",
             "0.0\n",
-            "14qVyGdk5CtyK2vpZE6jWZ3eA95B9abQgL\n",
+            "1EmqY9fWjELWWvKKundZCK4wMHNDzKSJ8o\n",
             "Баланс кошелька = 0.0\n",
-            "1FDwvEUnYydjtEjSP1w75C75HT6H4Kkxqx\n",
-            "16K57N1qzARD4s65r6rgNpsAeum1qzU7Ca\n",
-            "17ePyCFQ7MTKhfcsdNtX4qGErRSCPjuqFU\n",
-            "14HdeGT3yozJHMq3Fcm7gieWBE6xJogEnt\n",
-            "1KeeZQVHHrs6vLi7NU3xxyTAERK2kbaea5\n"
+            "1AWeYk5iL8p7HCcFAhAGvo88rx982N9syX\n",
+            "13956dnP8Cu9Dq9pwC8gXFJaEUsDZErAAK\n",
+            "1NSMR9r1rPNz84QbcMTZwtY7cNTCzuuod6\n",
+            "1JdewJ5PoCtJxjf3zw9sm7GUgb2nY66DL9\n",
+            "15UTk9yL5jQcZd2mHpevu2twBZATKKj368\n",
+            "1Gaztp3CWhX9TswK7P8Ry85YDnpXmKhy2u\n",
+            "1P1LJtULLLDh7tyC18inN96hR57dtcDesL\n",
+            "1Fj7Q3gTkSByABkY9wVV5p538UkfRDpQrM\n",
+            "1Dsd8Piy1HD4dDvcX4ZzPFxRZmdaEUuiRi\n",
+            "1MKWezS62e5XpVMziFdKesfJDGPXPsWtf\n",
+            "16i1GoZUVAtGZCn2HpDEQY1XHacsMXKqoR\n",
+            "15hmaSR6LFuy951cKWpHPoFFYMJcqmKmBo\n",
+            "16kSLRMGUSWL7sst6BnTwFrNgaQ1n6R69x\n",
+            "1MzG5hLjLJp8oJ4mRR5GaUuTFPcXTsHJpy\n"
           ]
         },
         {
@@ -91,7 +100,7 @@
           "traceback": [
             "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
             "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-54-82546b82105e>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     18\u001b[0m   \u001b[0msoup_balance\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mBeautifulSoup\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0msrc_balance\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcontent\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'html.parser'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m   \u001b[0mdiv\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msoup_balance\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfind\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'div'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mclass_\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'dash dash-3'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 20\u001b[0;31m   \u001b[0;32mfor\u001b[0m \u001b[0mli\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdiv\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfind_all\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'li'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     21\u001b[0m  \u001b[0;31m#br = li.find('br')\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     22\u001b[0m     \u001b[0mli_without_BTC\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0mli\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtext\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mreplace\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\" BTC\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m<ipython-input-55-82546b82105e>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     18\u001b[0m   \u001b[0msoup_balance\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mBeautifulSoup\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0msrc_balance\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcontent\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'html.parser'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m   \u001b[0mdiv\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msoup_balance\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfind\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'div'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mclass_\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'dash dash-3'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 20\u001b[0;31m   \u001b[0;32mfor\u001b[0m \u001b[0mli\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdiv\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfind_all\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'li'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     21\u001b[0m  \u001b[0;31m#br = li.find('br')\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     22\u001b[0m     \u001b[0mli_without_BTC\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0mli\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtext\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mreplace\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\" BTC\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
             "\u001b[0;31mAttributeError\u001b[0m: 'NoneType' object has no attribute 'find_all'"
           ]
         }
