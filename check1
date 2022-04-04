@@ -1,0 +1,52 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/PokrovskiyK/1/blob/main/check1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from bs4 import BeautifulSoup\n",
+        "import requests\n",
+        "\n",
+        "HEADERS = {\n",
+        "    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',\n",
+        "    'accept': '*/*'}\n",
+        "params = \"\"\n",
+        "\n",
+        "src_balance = requests.get(f'https://bitinfocharts.com/ru/bitcoin/address/34Xbry7sMjsCwsQeKgVvpSF5dgHeFHQt8E',  headers=HEADERS, params = params, stream=True)\n",
+        "soup_balance = BeautifulSoup (src_balance.content, 'html.parser')\n",
+        "tags = soup_balance.find_all('div', class_=\"display: inline-block;\")\n",
+        "tag = tags.find_all('b')\n",
+        "print(tag.text)"
+      ],
+      "metadata": {
+        "id": "S9TJ28CSRD4y"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "collapsed_sections": [],
+      "name": "Добро пожаловать в Colaboratory!",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
